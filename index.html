@@ -72,7 +72,10 @@ nav {
   box-shadow: 0 0 0 8px rgba(200,151,42,0.08), 0 20px 60px rgba(0,0,0,0.4);
   display: block;
 }
-@media (max-width: 900px) { .hero-photo { display: none; } }
+@media (max-width: 900px) {
+  .hero-photo { position: relative; right: auto; top: auto; transform: none; margin-bottom: 1.5rem; }
+  .hero-photo img { width: 120px; height: 120px; }
+}
 .hero-tag { display: inline-block; border: 1px solid var(--border); color: var(--accent); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; margin-bottom: 1.8rem; font-weight: 500; }
 .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--white); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
 .hero h1 em { font-style: italic; color: var(--accent2); }
