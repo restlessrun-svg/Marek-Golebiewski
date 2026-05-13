@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+https://restlessrun-svg.github.io/Marek-Golebiewski/#about<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -7,513 +7,173 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #0f1b3d;
-  --navy2: #182347;
-  --accent: #c8972a;
-  --accent2: #e8b84b;
-  --light: #f5f3ef;
-  --white: #ffffff;
-  --text: #2a2a2a;
-  --muted: #6b7280;
+  --navy: #0f1b3d; --navy2: #182347; --accent: #c8972a; --accent2: #e8b84b;
+  --light: #f5f3ef; --white: #ffffff; --text: #2a2a2a; --muted: #6b7280;
   --border: rgba(200,151,42,0.25);
 }
-
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--light); color: var(--text); overflow-x: hidden; }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--light);
-  color: var(--text);
-  overflow-x: hidden;
+/* LANG SWITCHER */
+.lang-switch {
+  display: flex; align-items: center; gap: 0.3rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(200,151,42,0.3);
+  padding: 0.2rem 0.25rem;
 }
+.lang-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45); padding: 0.25rem 0.55rem;
+  transition: color 0.2s, background 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.lang-btn.active { color: var(--navy); background: var(--accent); }
+.lang-btn:hover:not(.active) { color: rgba(255,255,255,0.85); }
+.lang-sep { color: rgba(200,151,42,0.4); font-size: 0.7rem; }
+
+/* Language visibility */
+[data-lang="en"] { display: none; }
+body.en [data-lang="pl"] { display: none; }
+body.en [data-lang="en"] { display: revert; }
 
 /* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(15,27,61,0.97);
-  backdrop-filter: blur(12px);
+  background: rgba(15,27,61,0.97); backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(200,151,42,0.2);
-  padding: 0 2.5rem;
-  height: 64px;
+  padding: 0 2.5rem; height: 64px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem; font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.04em;
-}
+.nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--white); letter-spacing: 0.04em; }
 .nav-logo span { color: var(--accent); }
+.nav-right { display: flex; align-items: center; gap: 2rem; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  text-decoration: none;
-  color: rgba(255,255,255,0.7);
-  font-size: 0.82rem; font-weight: 500;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  transition: color 0.2s;
-}
+.nav-links a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
 .nav-links a:hover { color: var(--accent2); }
 
 /* HERO */
-.hero {
-  min-height: 100vh;
-  background: var(--navy);
-  position: relative;
-  display: flex; align-items: center;
-  overflow: hidden;
-  padding: 0 6vw;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 70% at 80% 50%, rgba(200,151,42,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 20% 30%, rgba(100,130,255,0.05) 0%, transparent 60%);
-}
-.hero-lines {
-  position: absolute; inset: 0; overflow: hidden; pointer-events: none;
-}
-.hero-lines::before {
-  content: '';
-  position: absolute;
-  top: -20%; left: 55%;
-  width: 1px; height: 140%;
-  background: linear-gradient(180deg, transparent, rgba(200,151,42,0.3), transparent);
-  transform: rotate(-8deg);
-}
-.hero-lines::after {
-  content: '';
-  position: absolute;
-  top: -20%; left: 60%;
-  width: 1px; height: 140%;
-  background: linear-gradient(180deg, transparent, rgba(200,151,42,0.1), transparent);
-  transform: rotate(-8deg);
-}
-
-.hero-content {
-  position: relative; z-index: 2;
-  max-width: 680px;
-  animation: fadeUp 0.9s ease both;
-}
-.hero-tag {
-  display: inline-block;
-  border: 1px solid var(--border);
-  color: var(--accent);
-  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 0.4rem 1rem;
-  margin-bottom: 1.8rem;
-  font-weight: 500;
-}
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 300;
-  color: var(--white);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.3rem;
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--accent2);
-}
-.hero-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
-  font-weight: 300; font-style: italic;
-  color: rgba(255,255,255,0.55);
-  margin-bottom: 2.2rem;
-  letter-spacing: 0.02em;
-}
-.hero-desc {
-  font-size: 0.95rem; line-height: 1.75;
-  color: rgba(255,255,255,0.65);
-  max-width: 520px;
-  margin-bottom: 2.8rem;
-}
+.hero { min-height: 100vh; background: var(--navy); position: relative; display: flex; align-items: center; overflow: hidden; padding: 0 6vw; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(200,151,42,0.07) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 20% 30%, rgba(100,130,255,0.05) 0%, transparent 60%); }
+.hero-lines { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.hero-lines::before { content: ''; position: absolute; top: -20%; left: 55%; width: 1px; height: 140%; background: linear-gradient(180deg, transparent, rgba(200,151,42,0.3), transparent); transform: rotate(-8deg); }
+.hero-lines::after { content: ''; position: absolute; top: -20%; left: 60%; width: 1px; height: 140%; background: linear-gradient(180deg, transparent, rgba(200,151,42,0.1), transparent); transform: rotate(-8deg); }
+.hero-content { position: relative; z-index: 2; max-width: 680px; animation: fadeUp 0.9s ease both; }
+.hero-tag { display: inline-block; border: 1px solid var(--border); color: var(--accent); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; margin-bottom: 1.8rem; font-weight: 500; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--white); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
+.hero h1 em { font-style: italic; color: var(--accent2); }
+.hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2.2vw, 1.55rem); font-weight: 300; font-style: italic; color: rgba(255,255,255,0.55); margin-bottom: 2.2rem; letter-spacing: 0.02em; }
+.hero-desc { font-size: 0.95rem; line-height: 1.75; color: rgba(255,255,255,0.65); max-width: 520px; margin-bottom: 2.8rem; }
 .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn-primary {
-  background: var(--accent);
-  color: var(--navy);
-  padding: 0.85rem 2rem;
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
-  display: inline-block;
-}
+.btn-primary { background: var(--accent); color: var(--navy); padding: 0.85rem 2rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.2s; display: inline-block; }
 .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
-.btn-outline {
-  border: 1px solid rgba(255,255,255,0.3);
-  color: rgba(255,255,255,0.8);
-  padding: 0.85rem 2rem;
-  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none;
-  transition: border-color 0.2s, color 0.2s, transform 0.2s;
-  display: inline-block;
-}
+.btn-outline { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); padding: 0.85rem 2rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-block; }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-2px); }
-
-.hero-stats {
-  position: absolute; right: 6vw; bottom: 12%;
-  display: flex; flex-direction: column; gap: 2rem;
-  z-index: 2;
-  animation: fadeUp 1.1s 0.2s ease both;
-}
+.hero-stats { position: absolute; right: 6vw; bottom: 12%; display: flex; flex-direction: column; gap: 2rem; z-index: 2; animation: fadeUp 1.1s 0.2s ease both; }
 .stat-item { text-align: right; }
-.stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.8rem; font-weight: 600;
-  color: var(--accent2);
-  line-height: 1;
-}
-.stat-label {
-  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-top: 0.2rem;
-}
+.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: var(--accent2); line-height: 1; }
+.stat-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
 
 /* SECTIONS */
 section { padding: 6rem 6vw; }
-.section-header {
-  margin-bottom: 4rem;
-}
-.section-tag {
-  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 0.8rem;
-  display: block;
-}
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 300;
-  color: var(--navy);
-  line-height: 1.15;
-}
+.section-header { margin-bottom: 4rem; }
+.section-tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.8rem; display: block; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--navy); line-height: 1.15; }
 .section-title em { font-style: italic; color: var(--accent); }
 
 /* ABOUT */
 .about { background: var(--white); }
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 5rem;
-  align-items: start;
-}
-.about-left {}
-.about-lead {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem; font-weight: 300; font-style: italic;
-  color: var(--navy);
-  line-height: 1.6;
-  margin-bottom: 1.8rem;
-  padding-left: 1.5rem;
-  border-left: 3px solid var(--accent);
-}
-.about-text {
-  font-size: 0.93rem; line-height: 1.85;
-  color: var(--muted);
-  margin-bottom: 1.2rem;
-}
-.about-right {}
+.about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+.about-lead { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; font-style: italic; color: var(--navy); line-height: 1.6; margin-bottom: 1.8rem; padding-left: 1.5rem; border-left: 3px solid var(--accent); }
+.about-text { font-size: 0.93rem; line-height: 1.85; color: var(--muted); margin-bottom: 1.2rem; }
 .about-pillars { display: flex; flex-direction: column; gap: 1.2rem; }
-.pillar {
-  display: flex; gap: 1.2rem; align-items: flex-start;
-  padding: 1.4rem;
-  border: 1px solid rgba(0,0,0,0.07);
-  background: var(--light);
-  transition: border-color 0.2s, transform 0.2s;
-}
+.pillar { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.4rem; border: 1px solid rgba(0,0,0,0.07); background: var(--light); transition: border-color 0.2s, transform 0.2s; }
 .pillar:hover { border-color: var(--accent); transform: translateX(4px); }
-.pillar-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem; font-weight: 600;
-  color: var(--accent);
-  opacity: 0.5;
-  line-height: 1;
-  flex-shrink: 0; width: 2rem;
-}
-.pillar-content {}
-.pillar-title {
-  font-size: 0.9rem; font-weight: 500;
-  color: var(--navy);
-  margin-bottom: 0.3rem;
-  letter-spacing: 0.03em;
-}
+.pillar-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--accent); opacity: 0.5; line-height: 1; flex-shrink: 0; width: 2rem; }
+.pillar-title { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.3rem; }
 .pillar-text { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
 
 /* EXPERTISE */
 .expertise { background: var(--light); }
-.expertise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5px;
-  background: rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.08);
-}
-.exp-card {
-  background: var(--white);
-  padding: 2.2rem;
-  position: relative;
-  transition: background 0.3s;
-  cursor: default;
-}
+.expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5px; background: rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.08); }
+.exp-card { background: var(--white); padding: 2.2rem; transition: background 0.3s; cursor: default; }
 .exp-card:hover { background: var(--navy); }
-.exp-card:hover .exp-title { color: var(--white); }
+.exp-card:hover .exp-title, .exp-card:hover .exp-text { color: var(--white); }
 .exp-card:hover .exp-text { color: rgba(255,255,255,0.6); }
 .exp-card:hover .exp-icon { color: var(--accent2); }
 .exp-card:hover .exp-tags span { border-color: rgba(200,151,42,0.4); color: rgba(255,255,255,0.5); }
-.exp-icon {
-  font-size: 1.6rem;
-  color: var(--accent);
-  margin-bottom: 1.2rem;
-  display: block;
-  transition: color 0.3s;
-}
-.exp-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem; font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 0.8rem;
-  transition: color 0.3s;
-}
-.exp-text {
-  font-size: 0.83rem; line-height: 1.7;
-  color: var(--muted);
-  margin-bottom: 1.2rem;
-  transition: color 0.3s;
-}
+.exp-icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 1.2rem; display: block; transition: color 0.3s; }
+.exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--navy); margin-bottom: 0.8rem; transition: color 0.3s; }
+.exp-text { font-size: 0.83rem; line-height: 1.7; color: var(--muted); margin-bottom: 1.2rem; transition: color 0.3s; }
 .exp-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.exp-tags span {
-  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
-  border: 1px solid rgba(0,0,0,0.12);
-  color: var(--muted);
-  padding: 0.25rem 0.6rem;
-  transition: all 0.3s;
-}
+.exp-tags span { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(0,0,0,0.12); color: var(--muted); padding: 0.25rem 0.6rem; transition: all 0.3s; }
 
 /* CAREER */
 .career { background: var(--navy); }
 .career .section-title { color: var(--white); }
 .career .section-tag { color: var(--accent2); }
 .timeline { position: relative; padding-left: 2.5rem; }
-.timeline::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, var(--accent), rgba(200,151,42,0.1));
-}
-.tl-item {
-  position: relative;
-  padding-bottom: 3rem;
-  padding-left: 2rem;
-  opacity: 0;
-  transform: translateX(-20px);
-  transition: opacity 0.5s, transform 0.5s;
-}
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--accent), rgba(200,151,42,0.1)); }
+.tl-item { position: relative; padding-bottom: 3rem; padding-left: 2rem; opacity: 0; transform: translateX(-20px); transition: opacity 0.5s, transform 0.5s; }
 .tl-item.visible { opacity: 1; transform: translateX(0); }
-.tl-dot {
-  position: absolute; left: -2.5rem - 0.4rem;
-  left: calc(-2.5rem - 4px);
-  top: 0.35rem;
-  width: 9px; height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: 2px solid var(--navy);
-  box-shadow: 0 0 0 3px rgba(200,151,42,0.25);
-}
-.tl-years {
-  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 0.4rem;
-  font-weight: 500;
-}
-.tl-role {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 600;
-  color: var(--white);
-  margin-bottom: 0.2rem;
-}
-.tl-company {
-  font-size: 0.83rem; color: rgba(255,255,255,0.45);
-  margin-bottom: 0.8rem; font-style: italic;
-}
+.tl-dot { position: absolute; left: calc(-2.5rem - 4px); top: 0.35rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--navy); box-shadow: 0 0 0 3px rgba(200,151,42,0.25); }
+.tl-years { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; font-weight: 500; }
+.tl-role { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--white); margin-bottom: 0.2rem; }
+.tl-company { font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 0.8rem; font-style: italic; }
 .tl-achievements { list-style: none; }
-.tl-achievements li {
-  font-size: 0.86rem; color: rgba(255,255,255,0.6);
-  line-height: 1.65;
-  padding-left: 1rem;
-  position: relative;
-  margin-bottom: 0.3rem;
-}
-.tl-achievements li::before {
-  content: '→';
-  position: absolute; left: 0;
-  color: var(--accent);
-  font-size: 0.8rem;
-}
+.tl-achievements li { font-size: 0.86rem; color: rgba(255,255,255,0.6); line-height: 1.65; padding-left: 1rem; position: relative; margin-bottom: 0.3rem; }
+.tl-achievements li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
 
 /* EDUCATION */
 .education { background: var(--white); }
-.edu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-}
-.edu-card {
-  padding: 2.5rem;
-  border: 1px solid rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s, border-color 0.3s;
-}
+.edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.edu-card { padding: 2.5rem; border: 1px solid rgba(0,0,0,0.08); position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
 .edu-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-.edu-card::before {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.4s;
-}
+.edu-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
 .edu-card:hover::before { transform: scaleX(1); }
-.edu-year {
-  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); font-weight: 500; margin-bottom: 0.8rem;
-}
-.edu-degree {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem; font-weight: 600;
-  color: var(--navy); margin-bottom: 0.4rem;
-}
+.edu-year { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.8rem; }
+.edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
 .edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
-.edu-note {
-  display: inline-block;
-  background: rgba(200,151,42,0.1);
-  color: var(--accent);
-  font-size: 0.75rem; letter-spacing: 0.06em;
-  padding: 0.3rem 0.7rem;
-  font-weight: 500;
-}
+.edu-note { display: inline-block; background: rgba(200,151,42,0.1); color: var(--accent); font-size: 0.75rem; letter-spacing: 0.06em; padding: 0.3rem 0.7rem; font-weight: 500; }
 
 /* LECTURER */
 .lecturer { background: var(--light); }
-.lec-intro {
-  max-width: 680px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem; font-weight: 300; font-style: italic;
-  color: var(--navy); line-height: 1.7;
-  margin-bottom: 3.5rem;
-  border-left: 3px solid var(--accent);
-  padding-left: 1.5rem;
-}
-.lec-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-.lec-topic {
-  background: var(--white);
-  padding: 1.8rem;
-  border-top: 3px solid var(--accent);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
+.lec-intro { max-width: 680px; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; font-style: italic; color: var(--navy); line-height: 1.7; margin-bottom: 3.5rem; border-left: 3px solid var(--accent); padding-left: 1.5rem; }
+.lec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+.lec-topic { background: var(--white); padding: 1.8rem; border-top: 3px solid var(--accent); transition: transform 0.2s, box-shadow 0.2s; }
 .lec-topic:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-.lec-topic-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem; font-weight: 600;
-  color: var(--navy); margin-bottom: 0.6rem;
-}
+.lec-topic-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--navy); margin-bottom: 0.6rem; }
 .lec-topic-text { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
-.lec-speaking {
-  background: var(--navy);
-  padding: 2.5rem;
-  display: flex; gap: 3rem; flex-wrap: wrap; align-items: center;
-}
-.lec-speaking-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem; font-weight: 300; font-style: italic;
-  color: rgba(255,255,255,0.6); margin-bottom: 1rem;
-  white-space: nowrap;
-}
+.lec-speaking { background: var(--navy); padding: 2.5rem; display: flex; gap: 3rem; flex-wrap: wrap; align-items: center; }
+.lec-speaking-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.6); margin-bottom: 1rem; }
 .speaking-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-.speaking-list span {
-  font-size: 0.78rem; letter-spacing: 0.06em;
-  color: var(--accent2);
-  border: 1px solid rgba(200,151,42,0.3);
-  padding: 0.35rem 0.85rem;
-}
+.speaking-list span { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--accent2); border: 1px solid rgba(200,151,42,0.3); padding: 0.35rem 0.85rem; }
 
 /* CONTACT */
 .contact { background: var(--navy); text-align: center; }
 .contact .section-title { color: var(--white); }
 .contact .section-tag { color: var(--accent2); }
-.contact-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem; font-style: italic;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 3rem;
-}
-.contact-items {
-  display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
+.contact-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: rgba(255,255,255,0.5); margin-bottom: 3rem; }
+.contact-items { display: flex; justify-content: center; gap: 3.5rem; flex-wrap: wrap; margin-bottom: 3rem; }
 .contact-item { text-align: center; }
-.contact-label {
-  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.4rem; font-weight: 500;
-}
-.contact-value {
-  font-size: 0.92rem; color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  transition: color 0.2s;
-}
+.contact-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; font-weight: 500; }
+.contact-value { font-size: 0.92rem; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; display: block; }
 .contact-value:hover { color: var(--accent2); }
-.contact-divider {
-  width: 40px; height: 1px;
-  background: rgba(200,151,42,0.3);
-  margin: 3rem auto;
-}
-.contact-langs {
-  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
-}
-.lang-item {
-  display: flex; align-items: center; gap: 0.6rem;
-}
+.contact-divider { width: 40px; height: 1px; background: rgba(200,151,42,0.3); margin: 3rem auto; }
+.contact-langs { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+.lang-item { display: flex; align-items: center; gap: 0.6rem; }
 .lang-name { font-size: 0.83rem; color: rgba(255,255,255,0.7); }
-.lang-level {
-  font-size: 0.68rem; letter-spacing: 0.08em;
-  color: var(--accent);
-  border: 1px solid rgba(200,151,42,0.3);
-  padding: 0.15rem 0.5rem;
-}
+.lang-level { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--accent); border: 1px solid rgba(200,151,42,0.3); padding: 0.15rem 0.5rem; }
 
-/* FOOTER */
-footer {
-  background: #090f20;
-  text-align: center;
-  padding: 1.5rem;
-  font-size: 0.75rem; letter-spacing: 0.05em;
-  color: rgba(255,255,255,0.2);
-}
+footer { background: #090f20; text-align: center; padding: 1.5rem; font-size: 0.75rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.2); }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
-  nav { padding: 0 1.5rem; }
+  nav { padding: 0 1rem; }
   .nav-links { display: none; }
   section { padding: 4rem 5vw; }
   .hero { padding: 6rem 5vw 4rem; min-height: auto; }
@@ -526,156 +186,153 @@ footer {
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">Marek <span>Gołębiewski</span></div>
-  <ul class="nav-links">
-    <li><a href="#about">O mnie</a></li>
-    <li><a href="#expertise">Kompetencje</a></li>
-    <li><a href="#career">Kariera</a></li>
-    <li><a href="#education">Edukacja</a></li>
-    <li><a href="#lecturer">Wykładowca</a></li>
-    <li><a href="#contact">Kontakt</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about" data-lang="pl">O mnie</a><a href="#about" data-lang="en">About</a></li>
+      <li><a href="#expertise" data-lang="pl">Kompetencje</a><a href="#expertise" data-lang="en">Expertise</a></li>
+      <li><a href="#career" data-lang="pl">Kariera</a><a href="#career" data-lang="en">Career</a></li>
+      <li><a href="#education" data-lang="pl">Edukacja</a><a href="#education" data-lang="en">Education</a></li>
+      <li><a href="#lecturer" data-lang="pl">Wykładowca</a><a href="#lecturer" data-lang="en">Lecturer</a></li>
+      <li><a href="#contact" data-lang="pl">Kontakt</a><a href="#contact" data-lang="en">Contact</a></li>
+    </ul>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-pl" onclick="setLang('pl')">PL</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-lines"></div>
+  <div class="hero-bg"></div><div class="hero-lines"></div>
   <div class="hero-content">
-    <div class="hero-tag">Dostępny na rynku pracy</div>
+    <div class="hero-tag" data-lang="pl">Dostępny na rynku pracy</div>
+    <div class="hero-tag" data-lang="en">Open to new opportunities</div>
     <h1>Marek<br><em>Gołębiewski</em></h1>
-    <p class="hero-subtitle">CFO &amp; Board Member · Lider Strategiczny · Wykładowca Akademicki</p>
-    <p class="hero-desc">Ponad 30 lat doświadczenia w zarządzaniu finansami korporacyjnymi, restrukturyzacji i przywództwie w środowiskach międzynarodowych. Łączę głębię analityczną z orientacją biznesową i pasją do dzielenia się wiedzą.</p>
+    <p class="hero-subtitle" data-lang="pl">CFO &amp; Board Member · Lider Strategiczny · Wykładowca Akademicki</p>
+    <p class="hero-subtitle" data-lang="en">CFO &amp; Board Member · Strategic Leader · Academic Lecturer</p>
+    <p class="hero-desc" data-lang="pl">Ponad 30 lat doświadczenia w zarządzaniu finansami korporacyjnymi, restrukturyzacji i przywództwie w środowiskach międzynarodowych. Łączę głębię analityczną z orientacją biznesową i pasją do dzielenia się wiedzą.</p>
+    <p class="hero-desc" data-lang="en">Over 30 years of experience in corporate finance management, restructuring and leadership in international environments. I combine analytical depth with business orientation and a passion for sharing knowledge.</p>
     <div class="hero-ctas">
-      <a href="#expertise" class="btn-primary">Moje kompetencje</a>
-      <a href="#contact" class="btn-outline">Napisz do mnie</a>
+      <a href="#expertise" class="btn-primary" data-lang="pl">Moje kompetencje</a>
+      <a href="#expertise" class="btn-primary" data-lang="en">My expertise</a>
+      <a href="#contact" class="btn-outline" data-lang="pl">Napisz do mnie</a>
+      <a href="#contact" class="btn-outline" data-lang="en">Get in touch</a>
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">30+</div>
-      <div class="stat-label">lat doświadczenia</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">sektory przemysłowe</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">700M</div>
-      <div class="stat-label">USD zrestrukturyzowanego długu</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">30+</div><div class="stat-label" data-lang="pl">lat doświadczenia</div><div class="stat-label" data-lang="en">years of experience</div></div>
+    <div class="stat-item"><div class="stat-num">3</div><div class="stat-label" data-lang="pl">sektory przemysłowe</div><div class="stat-label" data-lang="en">industry sectors</div></div>
+    <div class="stat-item"><div class="stat-num">700M</div><div class="stat-label" data-lang="pl">USD zrestrukturyzowanego długu</div><div class="stat-label" data-lang="en">USD of debt restructured</div></div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="section-header reveal">
-    <span class="section-tag">Kim jestem</span>
-    <h2 class="section-title">Doświadczony lider<br>finansowy <em>&amp; strategiczny</em></h2>
+    <span class="section-tag" data-lang="pl">Kim jestem</span><span class="section-tag" data-lang="en">About me</span>
+    <h2 class="section-title" data-lang="pl">Doświadczony lider<br>finansowy <em>&amp; strategiczny</em></h2>
+    <h2 class="section-title" data-lang="en">Experienced financial<br><em>&amp; strategic leader</em></h2>
   </div>
   <div class="about-grid">
     <div class="about-left reveal">
-      <p class="about-lead">Zarządzanie to dla mnie ułatwianie procesów biznesowych i rozwoju strategicznego przy zachowaniu niezbędnej dyscypliny finansowej.</p>
-      <p class="about-text">Przez ponad dekadę pełniłem rolę CFO i Członka Zarządu w AB ORLEN Lietuva — dużej korporacji naftowej działającej w krajach bałtyckich. W tym czasie przeprowadziłem kompleksową restrukturyzację finansową, wyprowadzając spółkę z 700 mln USD zadłużenia do trwale dodatniej pozycji gotówkowej.</p>
-      <p class="about-text">Wcześniej budowałem doświadczenie w Telekomunikacji Polskiej SA oraz Powszechnym Banku Kredytowym — sektorach wymagających precyzji, zarządzania ryzykiem i myślenia strategicznego pod presją czasu.</p>
-      <p class="about-text">Posługuję się płynnie językiem angielskim i rosyjskim, co umożliwia mi efektywną pracę w środowiskach wielonarodowych. Jestem przekonany, że najlepsza wiedza to ta, którą można zastosować — i którą warto przekazywać dalej.</p>
+      <p class="about-lead" data-lang="pl">Zarządzanie to dla mnie ułatwianie procesów biznesowych i rozwoju strategicznego przy zachowaniu niezbędnej dyscypliny finansowej.</p>
+      <p class="about-lead" data-lang="en">For me, management means facilitating business processes and strategic development while maintaining the necessary financial discipline.</p>
+      <p class="about-text" data-lang="pl">Przez ponad dekadę pełniłem rolę CFO i Członka Zarządu w AB ORLEN Lietuva — dużej korporacji naftowej działającej w krajach bałtyckich. Przeprowadziłem kompleksową restrukturyzację finansową, wyprowadzając spółkę z 700 mln USD zadłużenia do trwale dodatniej pozycji gotówkowej.</p>
+      <p class="about-text" data-lang="en">For over a decade I served as CFO and Board Member at AB ORLEN Lietuva — a major oil corporation operating across the Baltic states. I led a comprehensive financial restructuring, taking the company from USD 700m of debt to a sustainably positive cash position.</p>
+      <p class="about-text" data-lang="pl">Wcześniej budowałem doświadczenie w Telekomunikacji Polskiej SA oraz Powszechnym Banku Kredytowym — sektorach wymagających precyzji, zarządzania ryzykiem i myślenia strategicznego pod presją czasu.</p>
+      <p class="about-text" data-lang="en">Earlier I built my experience at Telekomunikacja Polska SA and Powszechny Bank Kredytowy — sectors demanding precision, risk management and strategic thinking under time pressure.</p>
+      <p class="about-text" data-lang="pl">Posługuję się płynnie językiem angielskim i rosyjskim. Jestem przekonany, że najlepsza wiedza to ta, którą można zastosować — i którą warto przekazywać dalej.</p>
+      <p class="about-text" data-lang="en">I am fluent in English and Russian. I believe the best knowledge is that which can be applied — and shared with others.</p>
     </div>
     <div class="about-right reveal">
       <div class="about-pillars">
-        <div class="pillar">
-          <div class="pillar-num">01</div>
-          <div class="pillar-content">
-            <div class="pillar-title">Lider napędzany wyzwaniami</div>
-            <div class="pillar-text">Sprawdzony w sytuacjach kryzysowych i programach naprawczych. Potrafię mobilizować zespoły i dostarczać wyniki tam, gdzie presja jest największa.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">02</div>
-          <div class="pillar-content">
-            <div class="pillar-title">Myślenie strategiczne z podejściem hands-on</div>
-            <div class="pillar-text">Łączę wizję z egzekucją. Nie tylko planuję — wdrażam. Projekty restrukturyzacyjne, integracje grupowe, negocjacje kontraktów.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">03</div>
-          <div class="pillar-content">
-            <div class="pillar-title">Budowniczy relacji i zespołów</div>
-            <div class="pillar-text">Wychowałem wielu menedżerów i specjalistów. Tworzę środowisko, w którym ludzie chcą dawać z siebie więcej.</div>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-num">04</div>
-          <div class="pillar-content">
-            <div class="pillar-title">Ekspert środowisk międzynarodowych</div>
-            <div class="pillar-text">Zarządzanie w Litwie, Łotwie i Estonii. Negocjacje w UK. Współpraca z PKN Orlen, France Telecom Group i instytucjami finansowymi z całego świata.</div>
-          </div>
-        </div>
+        <div class="pillar"><div class="pillar-num">01</div><div class="pillar-content">
+          <div class="pillar-title" data-lang="pl">Lider napędzany wyzwaniami</div><div class="pillar-title" data-lang="en">Challenge-driven leader</div>
+          <div class="pillar-text" data-lang="pl">Sprawdzony w sytuacjach kryzysowych i programach naprawczych. Mobilizuję zespoły i dostarczam wyniki tam, gdzie presja jest największa.</div>
+          <div class="pillar-text" data-lang="en">Proven in crisis situations and turnaround programmes. I mobilise teams and deliver results where pressure is greatest.</div>
+        </div></div>
+        <div class="pillar"><div class="pillar-num">02</div><div class="pillar-content">
+          <div class="pillar-title" data-lang="pl">Myślenie strategiczne z podejściem hands-on</div><div class="pillar-title" data-lang="en">Strategic thinking with a hands-on approach</div>
+          <div class="pillar-text" data-lang="pl">Łączę wizję z egzekucją. Nie tylko planuję — wdrażam. Projekty restrukturyzacyjne, integracje grupowe, negocjacje kontraktów.</div>
+          <div class="pillar-text" data-lang="en">I combine vision with execution. I don't just plan — I implement. Restructuring projects, group integrations, contract negotiations.</div>
+        </div></div>
+        <div class="pillar"><div class="pillar-num">03</div><div class="pillar-content">
+          <div class="pillar-title" data-lang="pl">Budowniczy relacji i zespołów</div><div class="pillar-title" data-lang="en">Relationship and team builder</div>
+          <div class="pillar-text" data-lang="pl">Wychowałem wielu menedżerów. Tworzę środowisko, w którym ludzie chcą dawać z siebie więcej.</div>
+          <div class="pillar-text" data-lang="en">I have developed many managers. I create environments where people want to give their best.</div>
+        </div></div>
+        <div class="pillar"><div class="pillar-num">04</div><div class="pillar-content">
+          <div class="pillar-title" data-lang="pl">Ekspert środowisk międzynarodowych</div><div class="pillar-title" data-lang="en">International environment expert</div>
+          <div class="pillar-text" data-lang="pl">Zarządzanie w Litwie, Łotwie i Estonii. Negocjacje w UK. Współpraca z PKN Orlen i France Telecom Group.</div>
+          <div class="pillar-text" data-lang="en">Management in Lithuania, Latvia and Estonia. Negotiations in the UK. Collaboration with PKN Orlen and France Telecom Group.</div>
+        </div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- EXPERTISE -->
 <section class="expertise" id="expertise">
   <div class="section-header reveal">
-    <span class="section-tag">Zakres kompetencji</span>
-    <h2 class="section-title">Co wnoszę<br><em>do organizacji</em></h2>
+    <span class="section-tag" data-lang="pl">Zakres kompetencji</span><span class="section-tag" data-lang="en">Areas of expertise</span>
+    <h2 class="section-title" data-lang="pl">Co wnoszę<br><em>do organizacji</em></h2>
+    <h2 class="section-title" data-lang="en">What I bring<br><em>to an organisation</em></h2>
   </div>
   <div class="expertise-grid reveal">
-    <div class="exp-card">
-      <span class="exp-icon">◈</span>
-      <div class="exp-title">Finanse Korporacyjne</div>
-      <p class="exp-text">Treasury, zarządzanie płynnością, hedging FX i stóp procentowych, finansowanie zewnętrzne, strukturyzacja kapitału. Doświadczenie z instrumentami powyżej 5 mld EUR.</p>
+    <div class="exp-card"><span class="exp-icon">◈</span>
+      <div class="exp-title" data-lang="pl">Finanse Korporacyjne</div><div class="exp-title" data-lang="en">Corporate Finance</div>
+      <p class="exp-text" data-lang="pl">Treasury, zarządzanie płynnością, hedging FX i stóp procentowych, finansowanie zewnętrzne, strukturyzacja kapitału. Doświadczenie z instrumentami powyżej 5 mld EUR.</p>
+      <p class="exp-text" data-lang="en">Treasury, liquidity management, FX and interest rate hedging, external financing, capital structuring. Experience with instruments exceeding EUR 5bn.</p>
       <div class="exp-tags"><span>Treasury</span><span>Hedging</span><span>Cash Flow</span><span>Debt Mgmt</span></div>
     </div>
-    <div class="exp-card">
-      <span class="exp-icon">◈</span>
-      <div class="exp-title">Zarządzanie Strategiczne</div>
-      <p class="exp-text">Budowanie i egzekucja strategii długoterminowych, planowanie finansowe, controlling, programy naprawcze, restrukturyzacje operacyjne.</p>
-      <div class="exp-tags"><span>Strategia</span><span>Controlling</span><span>Restrukturyzacja</span></div>
+    <div class="exp-card"><span class="exp-icon">◈</span>
+      <div class="exp-title" data-lang="pl">Zarządzanie Strategiczne</div><div class="exp-title" data-lang="en">Strategic Management</div>
+      <p class="exp-text" data-lang="pl">Budowanie i egzekucja strategii długoterminowych, planowanie finansowe, controlling, programy naprawcze, restrukturyzacje operacyjne.</p>
+      <p class="exp-text" data-lang="en">Building and executing long-term strategies, financial planning, controlling, turnaround programmes, operational restructuring.</p>
+      <div class="exp-tags"><span>Strategy</span><span>Controlling</span><span>Restructuring</span></div>
     </div>
-    <div class="exp-card">
-      <span class="exp-icon">◈</span>
-      <div class="exp-title">Zarządzanie Ryzykiem</div>
-      <p class="exp-text">Ryzyko rynkowe, kredytowe i operacyjne. Polityki zarządzania ryzykiem dla grup kapitałowych. Wdrożenia Sarbanes-Oxley w środowisku korporacyjnym.</p>
+    <div class="exp-card"><span class="exp-icon">◈</span>
+      <div class="exp-title" data-lang="pl">Zarządzanie Ryzykiem</div><div class="exp-title" data-lang="en">Risk Management</div>
+      <p class="exp-text" data-lang="pl">Ryzyko rynkowe, kredytowe i operacyjne. Polityki zarządzania ryzykiem dla grup kapitałowych. Wdrożenia Sarbanes-Oxley.</p>
+      <p class="exp-text" data-lang="en">Market, credit and operational risk. Risk management policies for capital groups. Sarbanes-Oxley implementations.</p>
       <div class="exp-tags"><span>Risk Mgmt</span><span>Credit Risk</span><span>SOX</span></div>
     </div>
-    <div class="exp-card">
-      <span class="exp-icon">◈</span>
-      <div class="exp-title">Negocjacje &amp; M&amp;A</div>
-      <p class="exp-text">Kompleksowe negocjacje kontraktów, spory sądowe (UK court), ugody z kontrahentami strategicznymi. Procesy integracji w grupach kapitałowych.</p>
-      <div class="exp-tags"><span>Negocjacje</span><span>Legal Cases</span><span>Integracje</span></div>
+    <div class="exp-card"><span class="exp-icon">◈</span>
+      <div class="exp-title" data-lang="pl">Negocjacje &amp; M&amp;A</div><div class="exp-title" data-lang="en">Negotiations &amp; M&amp;A</div>
+      <p class="exp-text" data-lang="pl">Kompleksowe negocjacje kontraktów, spory sądowe (UK court), ugody z kontrahentami strategicznymi. Procesy integracji grupowych.</p>
+      <p class="exp-text" data-lang="en">Complex contract negotiations, litigation (UK court), settlements with strategic counterparties. Group integration processes.</p>
+      <div class="exp-tags"><span>Negotiations</span><span>Legal Cases</span><span>Integrations</span></div>
     </div>
-    <div class="exp-card">
-      <span class="exp-icon">◈</span>
-      <div class="exp-title">Przywództwo &amp; Kultura</div>
-      <p class="exp-text">Budowanie zespołów menedżerskich, zarządzanie zmianą, zarządzanie przez cele. Doświadczenie w wielonarodowych środowiskach pracy Litwa/Łotwa/Estonia.</p>
+    <div class="exp-card"><span class="exp-icon">◈</span>
+      <div class="exp-title" data-lang="pl">Przywództwo &amp; Kultura</div><div class="exp-title" data-lang="en">Leadership &amp; Culture</div>
+      <p class="exp-text" data-lang="pl">Budowanie zespołów menedżerskich, zarządzanie zmianą, zarządzanie przez cele. Środowiska wielonarodowe Litwa/Łotwa/Estonia.</p>
+      <p class="exp-text" data-lang="en">Building management teams, change management, management by objectives. Multinational environments across Lithuania, Latvia and Estonia.</p>
       <div class="exp-tags"><span>Leadership</span><span>Change Mgmt</span><span>Team Building</span></div>
     </div>
-    <div class="exp-card">
-      <span class="exp-icon">◈</span>
-      <div class="exp-title">Projekty Strategiczne</div>
-      <p class="exp-text">Nadzór nad projektami inwestycyjnymi, wdrożenia systemów IT, centralizacja funkcji w grupach. Koordynacja z rządami i regulatorami.</p>
-      <div class="exp-tags"><span>PMO</span><span>IT Systems</span><span>Centralizacja</span></div>
+    <div class="exp-card"><span class="exp-icon">◈</span>
+      <div class="exp-title" data-lang="pl">Projekty Strategiczne</div><div class="exp-title" data-lang="en">Strategic Projects</div>
+      <p class="exp-text" data-lang="pl">Nadzór nad projektami inwestycyjnymi, wdrożenia systemów IT, centralizacja funkcji w grupach. Koordynacja z rządami i regulatorami.</p>
+      <p class="exp-text" data-lang="en">Supervision of investment projects, IT system implementations, function centralisation in groups. Coordination with governments and regulators.</p>
+      <div class="exp-tags"><span>PMO</span><span>IT Systems</span><span>Centralisation</span></div>
     </div>
   </div>
 </section>
 
-<!-- CAREER -->
 <section class="career" id="career">
   <div class="section-header reveal">
-    <span class="section-tag">Ścieżka kariery</span>
-    <h2 class="section-title">30 lat <em>realnych decyzji</em></h2>
+    <span class="section-tag" data-lang="pl">Ścieżka kariery</span><span class="section-tag" data-lang="en">Career path</span>
+    <h2 class="section-title" data-lang="pl">30 lat <em>realnych decyzji</em></h2>
+    <h2 class="section-title" data-lang="en">30 years of <em>real decisions</em></h2>
   </div>
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-years">2013 – 2025 · 12 lat</div>
-      <div class="tl-role">CFO &amp; Dyrektor Generalny, Przewodniczący Rady Dyrektorów</div>
-      <div class="tl-company">AB ORLEN Lietuva · Mažeikiai, Litwa</div>
-      <ul class="tl-achievements">
+      <div class="tl-years" data-lang="pl">2013 – 2025 · 12 lat</div><div class="tl-years" data-lang="en">2013 – 2025 · 12 years</div>
+      <div class="tl-role" data-lang="pl">CFO &amp; Dyrektor Generalny, Przewodniczący Rady Dyrektorów</div>
+      <div class="tl-role" data-lang="en">CFO &amp; General Director, Chairman of the Board of Directors</div>
+      <div class="tl-company">AB ORLEN Lietuva · Mažeikiai, Lithuania</div>
+      <ul class="tl-achievements" data-lang="pl">
         <li>Restrukturyzacja finansowa: od 700 mln USD zadłużenia do trwale dodatniej pozycji gotówkowej od 2015 r.</li>
         <li>Pierwsza w historii spółki dywidenda dla właściciela (2016, 2017)</li>
         <li>Redukcja kosztów stałych o 15% (2014) i 10% (2015)</li>
@@ -683,137 +340,175 @@ footer {
         <li>Negocjacje z Petrofac, Lietuvos Gelezinkeliai i w UK court – wszystkie zakończone sukcesem</li>
         <li>Przewodniczący Rady Nadzorczej Orlen Latvia i Orlen Eesti</li>
       </ul>
-    </div>
-    <div class="tl-item">
-      <div class="tl-dot"></div>
-      <div class="tl-years">2012 · 9 miesięcy</div>
-      <div class="tl-role">Dyrektor Finansowy</div>
-      <div class="tl-company">JT Zakład Budowy Gazociągów Sp. z o.o. · Polska</div>
-      <ul class="tl-achievements">
-        <li>Pozyskanie finansowania bankowego (w tym faktoringu) jako jedyna firma budowlana z pozytywną decyzją kredytową Raiffeisen Bank Polska w 2012 r.</li>
-        <li>Redukcja kosztów ogólnych o 50% w ciągu 6 miesięcy</li>
-        <li>Wdrożenie nowych zasad controllingu dla kontraktów budowlanych</li>
+      <ul class="tl-achievements" data-lang="en">
+        <li>Financial restructuring: from USD 700m of debt to a sustainably positive cash position from 2015</li>
+        <li>First-ever dividend payment to the owner in the company's history (2016, 2017)</li>
+        <li>Fixed cost reduction of 15% (2014) and 10% (2015)</li>
+        <li>Leadership of Contingency Programme 2014–2015</li>
+        <li>Negotiations with Petrofac, Lietuvos Gelezinkeliai and UK court — all successfully concluded</li>
+        <li>Chairman of Supervisory Board of Orlen Latvia and Orlen Eesti</li>
       </ul>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
-      <div class="tl-years">2001 – 2011 · 10 lat</div>
-      <div class="tl-role">Dyrektor Treasury Grupy TP / Dyrektor Zarządzania Ryzykiem Kredytowym</div>
-      <div class="tl-company">Telekomunikacja Polska SA · Warszawa</div>
-      <ul class="tl-achievements">
+      <div class="tl-years" data-lang="pl">2012 · 9 miesięcy</div><div class="tl-years" data-lang="en">2012 · 9 months</div>
+      <div class="tl-role" data-lang="pl">Dyrektor Finansowy</div><div class="tl-role" data-lang="en">Financial Director</div>
+      <div class="tl-company">JT Zakład Budowy Gazociągów Sp. z o.o. · Poland</div>
+      <ul class="tl-achievements" data-lang="pl">
+        <li>Pozyskanie finansowania bankowego jako jedyna firma budowlana z pozytywną decyzją kredytową Raiffeisen Bank Polska w 2012 r.</li>
+        <li>Redukcja kosztów ogólnych o 50% w ciągu 6 miesięcy</li>
+        <li>Wdrożenie nowych zasad controllingu dla kontraktów budowlanych</li>
+      </ul>
+      <ul class="tl-achievements" data-lang="en">
+        <li>Secured bank financing as the only construction company with a positive credit decision from Raiffeisen Bank Polska in 2012</li>
+        <li>Overhead cost reduction of 50% within 6 months</li>
+        <li>Implementation of new controlling principles for construction contracts</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-years" data-lang="pl">2001 – 2011 · 10 lat</div><div class="tl-years" data-lang="en">2001 – 2011 · 10 years</div>
+      <div class="tl-role" data-lang="pl">Dyrektor Treasury Grupy TP / Dyrektor Zarządzania Ryzykiem Kredytowym</div>
+      <div class="tl-role" data-lang="en">TP Group Treasury Director / Credit Risk Management Director</div>
+      <div class="tl-company">Telekomunikacja Polska SA · Warsaw</div>
+      <ul class="tl-achievements" data-lang="pl">
         <li>Hedging FX i stóp procentowych na ponad 5 mld EUR (w tym 500 mln EUR Eurobonds, maj 2009)</li>
-        <li>Wdrożenie jednolitej polityki treasury dla Grupy TP wraz z dedykowanym cash poolem</li>
+        <li>Wdrożenie jednolitej polityki treasury Grupy TP wraz z dedykowanym cash poolem</li>
         <li>Zarządzanie spłatą obligacji US po upadku Lehman Brothers – sukces operacyjny</li>
         <li>Nominacja do TP Group Talent Pool (2008)</li>
+      </ul>
+      <ul class="tl-achievements" data-lang="en">
+        <li>FX and interest rate hedging exceeding EUR 5bn (including EUR 500m Eurobonds, May 2009)</li>
+        <li>Implemented unified TP Group treasury policy including a dedicated cash pool</li>
+        <li>Managed US bond repayment after Lehman Brothers collapse — operational success</li>
+        <li>TP Group Talent Pool nominee (2008)</li>
       </ul>
     </div>
     <div class="tl-item">
       <div class="tl-dot"></div>
       <div class="tl-years">1996 – 2001</div>
       <div class="tl-role">Chief Dealer</div>
-      <div class="tl-company">Powszechny Bank Kredytowy SA · Warszawa</div>
-      <ul class="tl-achievements">
+      <div class="tl-company">Powszechny Bank Kredytowy SA · Warsaw</div>
+      <ul class="tl-achievements" data-lang="pl">
         <li>Budowa Dealing Room od podstaw (16 pracowników)</li>
         <li>Wdrożenie procesów sprzedaży i zarządzania ryzykiem produktów skarbowych</li>
         <li>Implementacja systemu IT do transakcji skarbowych w PBK</li>
+      </ul>
+      <ul class="tl-achievements" data-lang="en">
+        <li>Built the Dealing Room from scratch (16 employees)</li>
+        <li>Implemented sales and risk management processes for treasury products</li>
+        <li>Implemented IT system for treasury transactions at PBK</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION -->
 <section class="education" id="education">
   <div class="section-header reveal">
-    <span class="section-tag">Wykształcenie</span>
-    <h2 class="section-title">Silne <em>fundamenty akademickie</em></h2>
+    <span class="section-tag" data-lang="pl">Wykształcenie</span><span class="section-tag" data-lang="en">Education</span>
+    <h2 class="section-title" data-lang="pl">Silne <em>fundamenty akademickie</em></h2>
+    <h2 class="section-title" data-lang="en">Strong <em>academic foundations</em></h2>
   </div>
   <div class="edu-grid reveal">
     <div class="edu-card">
       <div class="edu-year">2002 – 2004</div>
       <div class="edu-degree">Executive MBA</div>
-      <div class="edu-school">Szkoła Biznesu Politechniki Warszawskiej<br><em style="font-size:0.8rem;color:#9ca3af">we współpracy z London Business School, HEC Paris, NHH Norwegian Business School</em></div>
-      <span class="edu-note">★ Dyplom z wyróżnieniem · Najlepszy student roku</span>
+      <div class="edu-school" data-lang="pl">Szkoła Biznesu Politechniki Warszawskiej<br><em style="font-size:0.8rem;color:#9ca3af">we współpracy z London Business School, HEC Paris, NHH Norwegian Business School</em></div>
+      <div class="edu-school" data-lang="en">Warsaw University of Technology Business School<br><em style="font-size:0.8rem;color:#9ca3af">in partnership with London Business School, HEC Paris, NHH Norwegian Business School</em></div>
+      <span class="edu-note" data-lang="pl">★ Dyplom z wyróżnieniem · Najlepszy student roku</span>
+      <span class="edu-note" data-lang="en">★ Diploma with distinction · Highest ranked student</span>
     </div>
     <div class="edu-card">
       <div class="edu-year">1987 – 1992</div>
-      <div class="edu-degree">Magister – Finanse i Statystyka</div>
-      <div class="edu-school">Szkoła Główna Handlowa w Warszawie<br><em style="font-size:0.8rem;color:#9ca3af">Wydział Finansów i Statystyki</em></div>
+      <div class="edu-degree" data-lang="pl">Magister – Finanse i Statystyka</div>
+      <div class="edu-degree" data-lang="en">MSc – Finance and Statistics</div>
+      <div class="edu-school" data-lang="pl">Szkoła Główna Handlowa w Warszawie<br><em style="font-size:0.8rem;color:#9ca3af">Wydział Finansów i Statystyki</em></div>
+      <div class="edu-school" data-lang="en">Warsaw School of Economics (SGH)<br><em style="font-size:0.8rem;color:#9ca3af">Faculty of Finance and Statistics</em></div>
     </div>
     <div class="edu-card">
-      <div class="edu-year">Szkolenia zagraniczne</div>
-      <div class="edu-degree">Programy Executive</div>
+      <div class="edu-year" data-lang="pl">Szkolenia zagraniczne</div><div class="edu-year" data-lang="en">International training</div>
+      <div class="edu-degree" data-lang="pl">Programy Executive</div><div class="edu-degree" data-lang="en">Executive Programmes</div>
       <div class="edu-school">Merrill Lynch London · Goldman Sachs London · Deutsche Bank London<br>Dresdner Bank Frankfurt · HLB Frankfurt · Unibank Copenhagen<br>Ernst &amp; Young · ICAN Institute Warsaw</div>
     </div>
     <div class="edu-card">
-      <div class="edu-year">Certyfikaty branżowe</div>
-      <div class="edu-degree">Euromoney &amp; Programy Korporacyjne</div>
+      <div class="edu-year" data-lang="pl">Certyfikaty branżowe</div><div class="edu-year" data-lang="en">Professional certificates</div>
+      <div class="edu-degree" data-lang="pl">Euromoney &amp; Programy Korporacyjne</div><div class="edu-degree" data-lang="en">Euromoney &amp; Corporate Programmes</div>
       <div class="edu-school">Money Market &amp; FX Risk Management (Euromoney)<br>Bank Financial Management<br>TP Management Academy (2002–2008)<br>PKN ORLEN Talent Academy – ICAN Institute</div>
     </div>
   </div>
 </section>
 
-<!-- LECTURER -->
 <section class="lecturer" id="lecturer">
   <div class="section-header reveal">
-    <span class="section-tag">Oferta dla uczelni</span>
-    <h2 class="section-title">Wykładowca <em>z praktyki</em></h2>
+    <span class="section-tag" data-lang="pl">Oferta dla uczelni</span><span class="section-tag" data-lang="en">Academic offer</span>
+    <h2 class="section-title" data-lang="pl">Wykładowca <em>z praktyki</em></h2>
+    <h2 class="section-title" data-lang="en">Lecturer from <em>practice</em></h2>
   </div>
-  <p class="lec-intro reveal">Dysponuję unikalnym połączeniem wiedzy akademickiej (MBA, SGH) z ponad 30-letnim doświadczeniem w zarządzaniu korporacyjnym na poziomie zarządu. Moje wykłady to nie teoria — to przypadki, decyzje i wnioski z realnych sytuacji biznesowych.</p>
+  <p class="lec-intro reveal" data-lang="pl">Dysponuję unikalnym połączeniem wiedzy akademickiej (MBA, SGH) z ponad 30-letnim doświadczeniem w zarządzaniu korporacyjnym na poziomie zarządu. Moje wykłady to nie teoria — to przypadki, decyzje i wnioski z realnych sytuacji biznesowych.</p>
+  <p class="lec-intro reveal" data-lang="en">I offer a unique combination of academic knowledge (MBA, SGH) with over 30 years of board-level corporate management experience. My lectures are not theory — they are cases, decisions and lessons drawn from real business situations.</p>
   <div class="lec-grid reveal">
     <div class="lec-topic">
-      <div class="lec-topic-title">Finanse Korporacyjne</div>
-      <div class="lec-topic-text">Treasury, zarządzanie ryzykiem, hedging instrumentami pochodnymi, strukturyzacja finansowania, optymalizacja kapitału obrotowego.</div>
+      <div class="lec-topic-title" data-lang="pl">Finanse Korporacyjne</div><div class="lec-topic-title" data-lang="en">Corporate Finance</div>
+      <div class="lec-topic-text" data-lang="pl">Treasury, zarządzanie ryzykiem, hedging, strukturyzacja finansowania, optymalizacja kapitału obrotowego.</div>
+      <div class="lec-topic-text" data-lang="en">Treasury, risk management, hedging, financing structuring, working capital optimisation.</div>
     </div>
     <div class="lec-topic">
-      <div class="lec-topic-title">Zarządzanie Strategiczne</div>
-      <div class="lec-topic-text">Planowanie długoterminowe, restrukturyzacje, programy naprawcze, zarządzanie przez cele w dużych organizacjach.</div>
+      <div class="lec-topic-title" data-lang="pl">Zarządzanie Strategiczne</div><div class="lec-topic-title" data-lang="en">Strategic Management</div>
+      <div class="lec-topic-text" data-lang="pl">Planowanie długoterminowe, restrukturyzacje, programy naprawcze, zarządzanie przez cele.</div>
+      <div class="lec-topic-text" data-lang="en">Long-term planning, restructuring, turnaround programmes, management by objectives.</div>
     </div>
     <div class="lec-topic">
-      <div class="lec-topic-title">Kultura Korporacyjna &amp; Motywacja</div>
-      <div class="lec-topic-text">Wielonarodowe środowiska pracy, budowanie zaangażowania, modele przywódcze, zarządzanie zmianą i oporem organizacyjnym.</div>
+      <div class="lec-topic-title" data-lang="pl">Kultura Korporacyjna &amp; Motywacja</div><div class="lec-topic-title" data-lang="en">Corporate Culture &amp; Motivation</div>
+      <div class="lec-topic-text" data-lang="pl">Wielonarodowe środowiska pracy, budowanie zaangażowania, modele przywódcze, zarządzanie zmianą.</div>
+      <div class="lec-topic-text" data-lang="en">Multinational work environments, building engagement, leadership models, change management.</div>
     </div>
     <div class="lec-topic">
-      <div class="lec-topic-title">Zarządzanie Ryzykiem</div>
-      <div class="lec-topic-text">Ryzyko rynkowe i kredytowe, polityki zarządzania ryzykiem w grupach, narzędzia identyfikacji i mitygacji zagrożeń.</div>
+      <div class="lec-topic-title" data-lang="pl">Zarządzanie Ryzykiem</div><div class="lec-topic-title" data-lang="en">Risk Management</div>
+      <div class="lec-topic-text" data-lang="pl">Ryzyko rynkowe i kredytowe, polityki zarządzania ryzykiem w grupach, narzędzia mitygacji.</div>
+      <div class="lec-topic-text" data-lang="en">Market and credit risk, group risk management policies, mitigation tools.</div>
     </div>
     <div class="lec-topic">
-      <div class="lec-topic-title">Wdrażanie Projektów</div>
-      <div class="lec-topic-text">Zarządzanie projektami strategicznymi, negocjacje kontraktów, procesy integracji w grupach kapitałowych, liderowanie w sytuacjach kryzysowych.</div>
+      <div class="lec-topic-title" data-lang="pl">Wdrażanie Projektów</div><div class="lec-topic-title" data-lang="en">Project Implementation</div>
+      <div class="lec-topic-text" data-lang="pl">Zarządzanie projektami strategicznymi, negocjacje kontraktów, integracje grupowe, przywództwo kryzysowe.</div>
+      <div class="lec-topic-text" data-lang="en">Strategic project management, contract negotiations, group integrations, crisis leadership.</div>
     </div>
     <div class="lec-topic">
-      <div class="lec-topic-title">Rynki Finansowe</div>
-      <div class="lec-topic-text">Rynek pieniężny, FX, instrumenty pochodne, strategie hedgingowe — wiedza budowana od lat 90. w polskich i zagranicznych instytucjach finansowych.</div>
+      <div class="lec-topic-title" data-lang="pl">Rynki Finansowe</div><div class="lec-topic-title" data-lang="en">Financial Markets</div>
+      <div class="lec-topic-text" data-lang="pl">Rynek pieniężny, FX, instrumenty pochodne, strategie hedgingowe — wiedza budowana od lat 90.</div>
+      <div class="lec-topic-text" data-lang="en">Money market, FX, derivatives, hedging strategies — knowledge built since the 1990s.</div>
     </div>
   </div>
   <div class="lec-speaking reveal">
     <div>
-      <div class="lec-speaking-title">Dotychczasowe wystąpienia i aktywność dydaktyczna</div>
+      <div class="lec-speaking-title" data-lang="pl">Dotychczasowe wystąpienia i aktywność dydaktyczna</div>
+      <div class="lec-speaking-title" data-lang="en">Speaking engagements and teaching activity</div>
       <div class="speaking-list">
-        <span>SGH Warszawa (2011)</span>
+        <span data-lang="pl">SGH Warszawa (2011)</span><span data-lang="en">SGH Warsaw (2011)</span>
         <span>Euromoney Conference Prague (2004)</span>
-        <span>Wykłady wewnętrzne TP SA</span>
-        <span>Wykłady wewnętrzne PBK SA</span>
-        <span>Czł. Zarządu PCTA (2012)</span>
+        <span data-lang="pl">Wykłady wewnętrzne TP SA</span><span data-lang="en">Internal lectures TP SA</span>
+        <span data-lang="pl">Wykłady wewnętrzne PBK SA</span><span data-lang="en">Internal lectures PBK SA</span>
+        <span data-lang="pl">Czł. Zarządu PCTA (2012)</span><span data-lang="en">PCTA Board Member (2012)</span>
         <span>PKN ORLEN Talent Academy</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="section-header reveal">
-    <span class="section-tag">Kontakt</span>
-    <h2 class="section-title">Porozmawiajmy</h2>
+    <span class="section-tag" data-lang="pl">Kontakt</span><span class="section-tag" data-lang="en">Contact</span>
+    <h2 class="section-title" data-lang="pl">Porozmawiajmy</h2>
+    <h2 class="section-title" data-lang="en">Let's talk</h2>
   </div>
-  <p class="contact-sub reveal">Szukam nowych wyzwań — zarówno w roli CFO/Członka Zarządu, jak i wykładowcy akademickiego.</p>
+  <p class="contact-sub reveal" data-lang="pl">Szukam nowych wyzwań — zarówno w roli CFO/Członka Zarządu, jak i wykładowcy akademickiego.</p>
+  <p class="contact-sub reveal" data-lang="en">I am looking for new challenges — both as CFO/Board Member and as an academic lecturer.</p>
   <div class="contact-items reveal">
     <div class="contact-item">
       <div class="contact-label">Email</div>
       <a href="mailto:marekgolebiewski17@gmail.com" class="contact-value">marekgolebiewski17@gmail.com</a>
     </div>
     <div class="contact-item">
-      <div class="contact-label">Telefon</div>
+      <div class="contact-label" data-lang="pl">Telefon</div><div class="contact-label" data-lang="en">Phone</div>
       <a href="tel:+48504103895" class="contact-value">+48 504 103 895</a>
     </div>
     <div class="contact-item">
@@ -821,48 +516,52 @@ footer {
       <a href="https://linkedin.com/in/marekgolebiewski170733" target="_blank" class="contact-value">marekgolebiewski170733</a>
     </div>
     <div class="contact-item">
-      <div class="contact-label">Lokalizacja</div>
-      <span class="contact-value">Józefosław k. Warszawy</span>
+      <div class="contact-label" data-lang="pl">Lokalizacja</div><div class="contact-label" data-lang="en">Location</div>
+      <span class="contact-value" data-lang="pl">Józefosław k. Warszawy</span>
+      <span class="contact-value" data-lang="en">Józefosław, near Warsaw</span>
     </div>
   </div>
   <div class="contact-divider"></div>
   <div class="contact-langs reveal">
     <div class="lang-item">
-      <span class="lang-name">Polski</span>
-      <span class="lang-level">Ojczysty</span>
+      <span class="lang-name" data-lang="pl">Polski</span><span class="lang-name" data-lang="en">Polish</span>
+      <span class="lang-level" data-lang="pl">Ojczysty</span><span class="lang-level" data-lang="en">Native</span>
     </div>
     <div class="lang-item">
-      <span class="lang-name">Angielski</span>
-      <span class="lang-level">C1 – Biegły</span>
+      <span class="lang-name" data-lang="pl">Angielski</span><span class="lang-name" data-lang="en">English</span>
+      <span class="lang-level">C1</span>
     </div>
     <div class="lang-item">
-      <span class="lang-name">Rosyjski</span>
-      <span class="lang-level">B1 – Dobry</span>
+      <span class="lang-name" data-lang="pl">Rosyjski</span><span class="lang-name" data-lang="en">Russian</span>
+      <span class="lang-level">B1</span>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025 Marek Gołębiewski · Wszystkie prawa zastrzeżone
+  <span data-lang="pl">© 2025 Marek Gołębiewski · Wszystkie prawa zastrzeżone</span>
+  <span data-lang="en">© 2025 Marek Gołębiewski · All rights reserved</span>
 </footer>
 
 <script>
-// Scroll reveal
+function setLang(lang) {
+  document.body.classList.toggle('en', lang === 'en');
+  document.documentElement.lang = lang;
+  document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  localStorage.setItem('lang', lang);
+  document.title = lang === 'en'
+    ? 'Marek Gołębiewski – CFO | Leader | Lecturer'
+    : 'Marek Gołębiewski – CFO | Lider | Wykładowca';
+}
+const saved = localStorage.getItem('lang');
+if (saved === 'en') setLang('en');
+
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-    }
-  });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
-
 document.querySelectorAll('.reveal, .tl-item').forEach(el => observer.observe(el));
-
-// Stagger timeline items
-document.querySelectorAll('.tl-item').forEach((el, i) => {
-  el.style.transitionDelay = `${i * 0.1}s`;
-});
+document.querySelectorAll('.tl-item').forEach((el, i) => { el.style.transitionDelay = `${i * 0.1}s`; });
 </script>
-
 </body>
 </html>
