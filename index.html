@@ -1,4 +1,4 @@
-https://restlessrun-svg.github.io/Marek-Golebiewski/#about<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
 <meta charset="UTF-8">
@@ -60,6 +60,19 @@ nav {
 .hero-lines::before { content: ''; position: absolute; top: -20%; left: 55%; width: 1px; height: 140%; background: linear-gradient(180deg, transparent, rgba(200,151,42,0.3), transparent); transform: rotate(-8deg); }
 .hero-lines::after { content: ''; position: absolute; top: -20%; left: 60%; width: 1px; height: 140%; background: linear-gradient(180deg, transparent, rgba(200,151,42,0.1), transparent); transform: rotate(-8deg); }
 .hero-content { position: relative; z-index: 2; max-width: 680px; animation: fadeUp 0.9s ease both; }
+.hero-photo {
+  position: absolute; right: 6vw; top: 50%; transform: translateY(-50%);
+  z-index: 2; animation: fadeUp 1s 0.15s ease both;
+}
+.hero-photo img {
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 3px solid rgba(200,151,42,0.5);
+  box-shadow: 0 0 0 8px rgba(200,151,42,0.08), 0 20px 60px rgba(0,0,0,0.4);
+  display: block;
+}
+@media (max-width: 900px) { .hero-photo { display: none; } }
 .hero-tag { display: inline-block; border: 1px solid var(--border); color: var(--accent); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; margin-bottom: 1.8rem; font-weight: 500; }
 .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; color: var(--white); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
 .hero h1 em { font-style: italic; color: var(--accent2); }
@@ -70,7 +83,7 @@ nav {
 .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
 .btn-outline { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); padding: 0.85rem 2rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, color 0.2s, transform 0.2s; display: inline-block; }
 .btn-outline:hover { border-color: var(--accent); color: var(--accent2); transform: translateY(-2px); }
-.hero-stats { position: absolute; right: 6vw; bottom: 12%; display: flex; flex-direction: column; gap: 2rem; z-index: 2; animation: fadeUp 1.1s 0.2s ease both; }
+.hero-stats { position: absolute; right: 6vw; bottom: 8%; display: flex; flex-direction: column; gap: 2rem; z-index: 2; animation: fadeUp 1.1s 0.2s ease both; }
 .stat-item { text-align: right; }
 .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: var(--accent2); line-height: 1; }
 .stat-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
@@ -207,6 +220,9 @@ footer { background: #090f20; text-align: center; padding: 1.5rem; font-size: 0.
 
 <section class="hero" id="home">
   <div class="hero-bg"></div><div class="hero-lines"></div>
+  <div class="hero-photo">
+    <img src="MAREK.jpg" alt="Marek Gołębiewski">
+  </div>
   <div class="hero-content">
     <div class="hero-tag" data-lang="pl">Dostępny na rynku pracy</div>
     <div class="hero-tag" data-lang="en">Open to new opportunities</div>
@@ -339,6 +355,10 @@ footer { background: #090f20; text-align: center; padding: 1.5rem; font-size: 0.
         <li>Wdrożenie Programu Naprawczego Contingency Programme 2014–2015</li>
         <li>Negocjacje z Petrofac, Lietuvos Gelezinkeliai i w UK court – wszystkie zakończone sukcesem</li>
         <li>Przewodniczący Rady Nadzorczej Orlen Latvia i Orlen Eesti</li>
+        <li>Rozszerzenie obszarów działalności spółki o projekty energetyczne (2019–2025)</li>
+        <li>Systematyczne zwiększanie rentowności spółki</li>
+        <li>Rozwój aktywności hedgingu marży rafineryjnej</li>
+        <li>Implementacja największych inwestycji w historii spółki (2018–2025)</li>
       </ul>
       <ul class="tl-achievements" data-lang="en">
         <li>Financial restructuring: from USD 700m of debt to a sustainably positive cash position from 2015</li>
@@ -347,6 +367,10 @@ footer { background: #090f20; text-align: center; padding: 1.5rem; font-size: 0.
         <li>Leadership of Contingency Programme 2014–2015</li>
         <li>Negotiations with Petrofac, Lietuvos Gelezinkeliai and UK court — all successfully concluded</li>
         <li>Chairman of Supervisory Board of Orlen Latvia and Orlen Eesti</li>
+        <li>Expansion of the company's activities into energy projects (2019–2025)</li>
+        <li>Systematic improvement of the company's profitability</li>
+        <li>Development of refinery margin hedging activity</li>
+        <li>Implementation of the largest investments in the company's history (2018–2025)</li>
       </ul>
     </div>
     <div class="tl-item">
